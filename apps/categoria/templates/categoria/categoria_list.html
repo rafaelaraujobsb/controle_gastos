@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Categoria - Controle de Gastos
+{% endblock %}
+
+{% block main %}
+<br>
+
+<h3><strong>Categorias</strong></h3>
+<br>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for categoria in object_list %}
+        <tr>
+            <th scope="row">{{ categoria.id }}</th>
+            <td>{{ categoria }}</td>
+            <td>
+                <a href="{% url 'atualizar_categoria' categoria.id %}">Editar</a>
+                &nbsp;&nbsp;&nbsp; 
+                <a href="{% url 'deletar_categoria' categoria.id %}">Apagar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<br>
+
+<div class="float-right">
+    <a href="{% url 'cadastrar_categoria' %}"><button type="button" class="btn btn-outline-primary">Nova Categoria</button></a>
+</div>
+{% endblock %}
