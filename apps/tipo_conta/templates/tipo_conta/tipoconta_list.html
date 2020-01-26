@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Tipo da Conta - Controle de Gastos
+{% endblock %}
+
+{% block main %}
+<br>
+
+<h3><strong>Tipo da Conta</strong></h3>
+<br>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for tipo_conta in object_list %}
+        <tr>
+            <th scope="row">{{ tipo_conta.id }}</th>
+            <td>{{ tipo_conta }}</td>
+            <td>
+                <a href="{% url 'atualizar_tipo_conta' tipo_conta.id %}">Editar</a>
+                &nbsp;&nbsp;&nbsp; 
+                <a href="{% url 'deletar_tipo_conta' tipo_conta.id %}">Apagar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<br>
+
+<div class="float-right">
+    <a href="{% url 'cadastrar_tipo_conta' %}"><button type="button" class="btn btn-outline-primary">Novo Tipo de Conta</button></a>
+</div>
+{% endblock %}

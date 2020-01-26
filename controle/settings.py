@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'apps.core',
     'apps.conta',
     'apps.cartao',
+    'apps.usuario',
     'apps.categoria',
     'apps.tipo_conta',
     'apps.parcelamento',

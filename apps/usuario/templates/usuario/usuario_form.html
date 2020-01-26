@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% load bootstrap %}
+
+{% block main %}
+<br>
+
+{% if object %}
+<h3><strong>Atualizar Usuário</strong></h3>
+{% else %}
+<h3><strong>Cadastrar Usuário</strong></h3>
+{% endif %}
+
+<form method="post">
+    {% csrf_token %}
+
+    {{ form|bootstrap }}
+
+    <button type="submit" class="btn btn-success">Salvar</button>
+</form>
+{% endblock main %}
+
