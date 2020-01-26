@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Cartão - Controle de Gastos
+{% endblock %}
+
+{% block main %}
+<br>
+
+<h3><strong>Cartão</strong></h3>
+<br>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for cartao in object_list %}
+        <tr>
+            <th scope="row">{{ cartao.id }}</th>
+            <td>{{ cartao }}</td>
+            <td>
+                <a href="{% url 'atualizar_cartao' cartao.id %}">Editar</a>
+                &nbsp;&nbsp;&nbsp; 
+                <a href="{% url 'deletar_cartao' cartao.id %}">Apagar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<br>
+
+<div class="float-right">
+    <a href="{% url 'cadastrar_cartao' %}"><button type="button" class="btn btn-outline-primary">Novo Cartão</button></a>
+</div>
+{% endblock %}

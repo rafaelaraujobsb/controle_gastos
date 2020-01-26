@@ -21,6 +21,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 
     path('', include('apps.core.urls')),
+    path('contas/', include('apps.conta.urls')),    
+    path('cartoes/', include('apps.cartao.urls')),
     path('usuarios/', include('apps.usuario.urls')),
     path('tipo-conta/', include('apps.tipo_conta.urls')),
     path('categoria-gasto/', include('apps.categoria.urls')),

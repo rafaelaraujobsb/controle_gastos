@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Contas - Controle de Gastos
+{% endblock %}
+
+{% block main %}
+<br>
+
+<h3><strong>Contas</strong></h3>
+<br>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Tipo da Conta</th>
+            <th scope="col">Valor Inicial</th>
+            <th scope="col">Somando?</th>
+            <th scope="col">Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for conta in object_list %}
+        <tr>
+            <td class="scope">{{ conta.id }}</td>
+            <td>{{ conta }}</td>
+            <td>{{ conta.tipo_conta_id }}</td>
+            <td>{{ conta.valor_inicial }}</td>
+            <td>{{ conta.somatorio }}</td>
+            <td>
+                <a href="{% url 'atualizar_conta' conta.id %}">Editar</a>
+                &nbsp;&nbsp;&nbsp; 
+                <a href="{% url 'deletar_conta' conta.id %}">Apagar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<br>
+
+<div class="float-right">
+    <a href="{% url 'cadastrar_conta' %}"><button type="button" class="btn btn-outline-primary">Nova conta</button></a>
+</div>
+{% endblock %}

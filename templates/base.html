@@ -30,6 +30,8 @@
                         Editar
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{% url 'listar_conta' %}">Conta</a>
+                        <a class="dropdown-item" href="{% url 'listar_cartao' %}">Cartão</a>
                         <a class="dropdown-item" href="{% url 'listar_usuario' %}">Usuários</a>
                         <a class="dropdown-item" href="{% url 'listar_tipo_conta' %}">Tipo da Conta</a>
                         <a class="dropdown-item" href="{% url 'listar_categoria' %}">Categoria do Gasto</a>
